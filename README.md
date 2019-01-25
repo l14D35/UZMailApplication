@@ -1,0 +1,1 @@
+# UZ mail Java application
