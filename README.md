@@ -1,1 +1,1 @@
-# UZ mail Java application
+# UZ com.mail Java application
