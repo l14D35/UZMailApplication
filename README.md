@@ -1,7 +1,5 @@
 # UZ com.mail Java application
 
----
-
 # Install guide
 
 To run this application you have to add two libraries (`activation.jar` and `javax.mail.jar`) to your cloned project.
