@@ -1,6 +1,6 @@
-package gui;
+package com.gui;
 
-import mail.MailUZ;
+import com.mail.MailUZ;
 
 import javax.swing.*;
 import java.awt.*;

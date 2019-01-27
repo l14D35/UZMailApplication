@@ -1,5 +1,6 @@
-package suggestions;
+package com.suggestions;
 
 public class AutoSuggestions {
-    
+
+
 }

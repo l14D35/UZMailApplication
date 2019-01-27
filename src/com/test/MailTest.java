@@ -1,6 +1,6 @@
-package test;
+package com.test;
 
-import gui.MailGui;
+import com.gui.MailGui;
 
 public class MailTest {
     public static void main(String[] args) {
