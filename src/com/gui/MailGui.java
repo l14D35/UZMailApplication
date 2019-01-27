@@ -1,9 +1,11 @@
 package com.gui;
 
 import com.mail.MailUZ;
+import com.suggestions.AutoSuggestions;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class MailGui extends JFrame {
     private JLabel fromLabel;
@@ -69,10 +71,42 @@ public class MailGui extends JFrame {
 
         add(southPanel, BorderLayout.SOUTH);
 
+        new AutoSuggestions(toTextField, this, null, Color.WHITE.brighter(),
+                Color.BLUE, Color.RED.darker(), 0.75f) {
+
+            protected boolean wordTyped(String typedWord) {
+
+                //create list for dictionary
+                ArrayList<String> words = new ArrayList<>();
+                words.add("96125@stud.uz.zgora.pl1");
+                words.add("96131@stud.uz.zgora.pl1");
+                words.add("96132@stud.uz.zgora.pl1");
+                words.add("96133@stud.uz.zgora.pl1");
+                words.add("96124@stud.uz.zgora.pl1");
+                words.add("96135@stud.uz.zgora.pl1");
+                setDictionary(words);
+
+                return super.wordTyped(typedWord);//now call super to check for any matches against newest dictionary
+            }
+        };
+
+
         sendButton.addActionListener(e -> {
-            MailUZ.send(fromTextField.getText(), new String(passwdPasswordField.getPassword()), toTextField.getText(),
-                    subjectTextField.getText(), textArea.getText());
-            System.exit(0);
+            if (!AutoSuggestions.validate(toTextField.getText())) {
+                JOptionPane.showMessageDialog(this,
+                        "Wrong recipient email.",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            } else {
+
+                //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                MailUZ.send(fromTextField.getText(), new String(passwdPasswordField.getPassword()), toTextField.getText(),
+                        subjectTextField.getText(), textArea.getText());
+                System.exit(0);
+            }
         });
 
         colorButton.addActionListener(e -> changeColor());
@@ -125,6 +159,12 @@ public class MailGui extends JFrame {
             toLabel.setForeground(Color.BLACK);
             subjectLabel.setForeground(Color.BLACK);
             textLabel.setForeground(Color.BLACK);
+
+            fromTextField.setForeground(Color.BLACK);
+            toTextField.setForeground(Color.BLACK);
+            passwdPasswordField.setForeground(Color.BLACK);
+            subjectTextField.setForeground(Color.BLACK);
+            textArea.setForeground(Color.BLACK);
 
             isPressed = false;
         }
