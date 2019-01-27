@@ -16,13 +16,10 @@ public class MailGui extends JFrame {
     private JPasswordField passwdPasswordField;
     private JTextField subjectTextField;
     private JTextArea textArea;
-    private JButton sendButton;
-    private JButton colorButton;
     private JPanel southPanel;
     private JPanel northPanel;
 
     private boolean isPressed = false;
-
 
     public MailGui() {
         northPanel = new JPanel();
@@ -41,8 +38,8 @@ public class MailGui extends JFrame {
         subjectTextField = new JTextField();
         textArea = new JTextArea();
 
-        sendButton = new JButton("Send");
-        colorButton = new JButton("Change color");
+        JButton sendButton = new JButton("Send");
+        JButton colorButton = new JButton("Change color");
 
         textArea.setLineWrap(true);
 
@@ -120,8 +117,8 @@ public class MailGui extends JFrame {
             passwdPasswordField.setBackground(Color.WHITE);
             subjectTextField.setBackground(Color.WHITE);
             textArea.setBackground(Color.WHITE);
-            northPanel.setBackground(new Color(238,238,238));
-            southPanel.setBackground(new Color(238,238,238));
+            northPanel.setBackground(new Color(238, 238, 238));
+            southPanel.setBackground(new Color(238, 238, 238));
 
             fromLabel.setForeground(Color.BLACK);
             passwdLabel.setForeground(Color.BLACK);
@@ -133,6 +130,5 @@ public class MailGui extends JFrame {
         }
 
     }
-
 
 }
