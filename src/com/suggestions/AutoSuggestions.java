@@ -183,8 +183,10 @@ public class AutoSuggestions {
                                 sl.setFocused(false);
                                 lastFocusableIndex = i;
                                 lastFocusableIndex___ = lastFocusableIndex;
+                                setFocusToTextField();
+                                //checkForAndShowSuggestions();
                             }
-                        } else if (lastFocusableIndex > i) {
+                        } else if (lastFocusableIndex >= i) {
                             if (i < max) {
                                 sl.setFocused(true);
                                 autoSuggestionPopUpWindow.toFront();
